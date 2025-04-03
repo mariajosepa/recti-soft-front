@@ -4,10 +4,10 @@ type LoginProps = {
   iconUrl: string;
 };
 
-const Login = (props : LoginProps ) => {
+export default function Login (props : LoginProps )  {
   return (
-    <div className="bg-d-grey h-[30vh] w-[40%]  flex flex-col items-center justify-center rounded-lg gap-1 text-white">
-      <div className="w-full flex flex-col items-center justify-center p-2 gap-3">
+    <div className="bg-d-grey h-[35vh] w-[40%] md:w-[30%]  flex flex-col items-center justify-center rounded-lg gap-1 text-white p-10">
+      <div className="w-full flex flex-col items-center justify-center p-2 gap-8">
         <Image
           src={props.iconUrl}
           alt="icon"
@@ -23,19 +23,24 @@ const Login = (props : LoginProps ) => {
             type="text" 
             id="username"
             name="username"
-            className="bg-white h-8 w-25 sm:w-50 "
+            required
+            minLength={4}
+            maxLength={20}
+            className="bg-white h-8 w-30 md:w-48 rounded-sm text-black"
             />
 
-          <label htmlFor="username" className="self-baseline">Contraseña:</label>
+          <label htmlFor="username" className="self-baseline">:</label>
           <input 
           type="text"
           id="password"
           name="password"
-          className="bg-white h-8 w-25 sm:w-50  "
+          required
+          minLength={4}
+          maxLength={20}
+          className="bg-white h-8 w-30 md:w-48 rounded-sm text-black"
           />
         </form>
       </div>
     </div>
   )
 }
-export default Login;
